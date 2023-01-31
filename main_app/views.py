@@ -1,10 +1,9 @@
 from django.shortcuts import render
-
-from django.http import HttpResponse
+from .models import Poster
 
 class Poster:  # Note that parens are optional if not inheriting from another class
-  def __init__(self, name, stock, description, printed):
-    self.name = name
+  def __init__(self, band, stock, description, printed):
+    self.band = band
     self.stock = stock
     self.description = description
     self.printed = printed
@@ -18,10 +17,14 @@ posters = [
 
 #Define the home view
 def home(request):
-    return HttpResponse('<h1>Hello!</h1>')
+    return render(request, 'home.html')
 
 def about(request):
     return render(request, 'about.html')
 
 def posters_index(request):
     return render(request, 'posters/index.html', { 'posters': posters })
+
+def posters_index(request):
+  posters = Poster.objects.all()
+  return render(request, 'posters/index.html', { 'posters': posters })
