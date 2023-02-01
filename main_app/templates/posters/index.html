@@ -4,12 +4,12 @@
 
 {% for poster in posters %}
 <div class="card">
-  <a href="{% url 'detail' poster.id %}"></a>
+  <a href="{% url 'detail' poster.id %}">
     <div class="card-content">
       <span class="card-title">{{ poster.band }}</span>
       <p>Cardstock: {{ poster.stock }}</p>
       <p>Description: {{ poster.description }}</p>
-      {% if poster.printed > 1970 %}
+      {% if poster.printed > 1900 %}
       <p>Printed: {{ poster.printed }}</p>
       {% else %}
       <p>Printed: Unknown</p>
