@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import Poster
+from .forms import VariationForm
 
 # class Poster:  # Note that parens are optional if not inheriting from another class
 #   def __init__(self, band, stock, description, printed):
@@ -31,4 +33,18 @@ def posters_index(request):
 
 def posters_detail(request, poster_id):
   poster = Poster.objects.get(id=poster_id)
-  return render(request, 'posters/detail.html', { 'poster': poster })
+  variation_form = VariationForm()
+  return render(request, 'posters/detail.html', { 'poster': poster, 'variation_form' : variation_form })
+
+class PosterCreate(CreateView):
+  model = Poster
+  fields = '__all__'
+  success_url = '/posters/'
+
+class PosterUpdate(UpdateView):
+  model = Poster
+  fields = ['stock', 'description', 'printed']
+
+class PosterDelete(DeleteView):
+  model = Poster
+  success_url = '/posters/'
