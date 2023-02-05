@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Dream Poster Detail</h1>
+
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">A <span class="{{object.tour.lower}}-text">{{object.tour.capitalize}}</span>
+        </div>
+        <div class="card-action">
+            <a href="{% url 'dream_update' object.id %}">Edit</a>
+            <a href="{% url 'dream_delete' object.id %}">Delete</a>
+    </div>
+</a>
+
+{% endblock %}

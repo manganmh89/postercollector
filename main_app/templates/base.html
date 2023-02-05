@@ -13,24 +13,26 @@
   <body>
     <header class="navbar-fixed">
       <nav>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper teal lighten-2">
           <ul>
             <li>
-              <a href="/" class="left brand-logo">&nbsp;&nbsp;PosterCollector</a>
+              <a href="/" class="left brand-logo">&nbsp;&nbsp;</a>
             </li>
           </ul>
           <ul class="right">
-            <li><a href="/home">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="/admin">Admin</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="{% url 'posters_create' %}">Add Poster</a></li>
             <li><a href="/posters">View My Collection</a></li>
+            <li><a href="{% url 'dream_create' %}">Create Dream List</a></li>
+            <li><a href="{% url 'dream_index' %}">View My Dream Collection</a></li>
           </ul>
         </div>
       </nav>
     </header>
     <main class="container">{% block content %} {% endblock %}</main>
-    <footer class="page-footer">
+    <footer class="page-footer teal lighten-2">
       <div class="right">
         All Rights Reserved, &copy; 2023 Poster Collector &nbsp;
       </div>
